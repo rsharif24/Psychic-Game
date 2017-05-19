@@ -21,6 +21,7 @@
 
 	function resetGame(){
 		guesses = 10;
+		document.getElementById('userGuess').innerHTML = "";
 	}
 
 
@@ -37,9 +38,10 @@
 			guesses --;
 		}
 
-		if (guesses === 0) {
+		if (guesses < 0) {
 			losses ++;
 			resetGame();
+		
 		}
 
 
@@ -51,4 +53,3 @@
 	}
 
 
-	
