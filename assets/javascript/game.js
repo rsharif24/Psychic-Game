@@ -15,6 +15,10 @@
 
 	var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 
+	function newNumber(){
+		randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+	}
+
 	function resetGame(){
 		guesses = 10;
 	}
@@ -22,10 +26,12 @@
 
 	document.onkeypress = function(event){
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
+		
 
 		if (userGuess === randomLetter) {
 			wins ++;
+			newNumber();
+			resetGame();
 		}
 		else {
 			guesses --;
@@ -34,11 +40,10 @@
 		if (guesses === 0) {
 			losses ++;
 			resetGame();
-			return;
 		}
 
 
-		document.getElementById('playerGuess').innerHTML= userGuess;
+		document.getElementById('userGuess').innerHTML+= userGuess + ",";
 		document.getElementById('wins').innerHTML= wins;
 		document.getElementById('losses').innerHTML= losses;
 		document.getElementById('guesses').innerHTML= guesses;
