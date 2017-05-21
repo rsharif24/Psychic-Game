@@ -38,7 +38,7 @@
 			guesses --;
 		}
 
-		if (guesses < 0) {
+		if (guesses === 0) {
 			losses ++;
 			resetGame();
 		
